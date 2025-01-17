@@ -19,7 +19,7 @@ function completeTask(reward, taskUrl) {
     localStorage.setItem('balance', balance);
 
 
-    window.open(taskUrl, '_blank');
+    window.location.href = taskUrl;
 }
 
 function updateBalance() {
