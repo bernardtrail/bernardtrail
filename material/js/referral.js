@@ -17,9 +17,9 @@ function generateReferralCode() {
 
 // Initialize referral system
 function initializeReferralSystem() {
-    // Generate referral link
+    // Generate referral link with Telegram bot URL
     const referralCode = generateReferralCode();
-    const referralLink = `${window.location.origin}/index.html?ref=${referralCode}`;
+    const referralLink = `https://t.me/Bernardcoinbot?start=${referralCode}`;
     
     // Update referral link in input field
     const linkInput = document.getElementById('referralLink');
@@ -27,6 +27,9 @@ function initializeReferralSystem() {
         linkInput.value = referralLink;
     }
 
+    // Track referred users
+    let referredUsers = JSON.parse(localStorage.getItem('referredUsers')) || [];
+    
     // Check if user came from a referral
     const urlParams = new URLSearchParams(window.location.search);
     const referrerCode = urlParams.get('ref');
@@ -83,11 +86,12 @@ function copyReferralLink() {
     
     // Update button text
     const copyButton = document.getElementById('copyButton');
-    copyButton.textContent = 'Copied!';
+    const originalText = copyButton.innerHTML;
+    copyButton.innerHTML = '<i class="fas fa-check"></i> Copied!';
     
     // Reset after 2 seconds
     setTimeout(() => {
         toast.classList.remove('show');
-        copyButton.textContent = 'Copy Link';
+        copyButton.innerHTML = originalText;
     }, 2000);
 }
