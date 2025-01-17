@@ -9,13 +9,37 @@
     <link rel="stylesheet" href="material/css/st.css">
 </head>
 <body>
-    
-
-    <div class="frens-invite">
-        <div class="frens-invite-button">
-            <input type="text" value="https://t.me/Bernardcoinbot" id="link" readonly>
-            <button id="copyButton">Copy Link</button>
+    <div class="referral-container">
+        <div class="referral-info">
+            <h2><i class="fas fa-gift"></i> Invite & Earn</h2>
+            <p>Share your unique referral link with friends and earn <strong>1000 BNC</strong> for each friend who joins!</p>
+            
+            <div class="stats-container">
+                <div class="stat-box">
+                    <i class="fas fa-users" style="color: #ffcc00; margin-bottom: 10px; font-size: 24px;"></i>
+                    <span class="stat-number" id="referralCount">0</span>
+                    <span class="stat-label">Friends Invited</span>
+                </div>
+                <div class="stat-box">
+                    <i class="fas fa-coins" style="color: #ffcc00; margin-bottom: 10px; font-size: 24px;"></i>
+                    <span class="stat-number" id="totalEarned">0</span>
+                    <span class="stat-label">BNC Earned</span>
+                </div>
+            </div>
         </div>
+
+        <div class="frens-invite">
+            <div class="frens-invite-button">
+                <input type="text" id="referralLink" readonly>
+                <button id="copyButton" onclick="copyReferralLink()">
+                    <i class="fas fa-copy"></i> Copy Link
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast">
+        <i class="fas fa-check-circle"></i> Link copied successfully!
     </div>
 
     <nav class="bottom-nav">
@@ -40,7 +64,7 @@
             <span>PASS</span>
         </a>
     </nav>
-    <script src="material/js/cojs.js"></script>
-    <script src="material/js/scripts.js"></script>
+
+    <script src="material/js/referral.js"></script>
 </body>
 </html>
