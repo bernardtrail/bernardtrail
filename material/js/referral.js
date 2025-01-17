@@ -19,7 +19,7 @@ function generateReferralCode() {
 function initializeReferralSystem() {
     // Generate referral link with Telegram bot URL
     const referralCode = generateReferralCode();
-    const referralLink = `https://t.me/Bernardcoinbot?start=${referralCode}`;
+    const referralLink = `https://t.me/shersytestingbot?start=${referralCode}`;
     
     // Update referral link in input field
     const linkInput = document.getElementById('referralLink');
